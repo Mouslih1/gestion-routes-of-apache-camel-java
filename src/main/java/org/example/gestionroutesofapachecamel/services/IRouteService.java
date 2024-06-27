@@ -7,4 +7,5 @@ public interface IRouteService {
     RouteDto saveRoute(RouteDto routeDto);
     void deleteRoute(Long id);
     void startRoute(Long id) throws Exception;
+    void stopRoute(Long id) throws Exception;
 }

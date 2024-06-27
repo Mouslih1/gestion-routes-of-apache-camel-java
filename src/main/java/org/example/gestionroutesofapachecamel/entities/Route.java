@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "routes")
@@ -22,8 +25,14 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fromType;
+    private String routeUuid;
     private String toType;
     private String fromUrl;
     private String toUrl;
     private String message;
+
+    @CreatedDate
+    private LocalDateTime createdAt;
+
+    private boolean isDelete = Boolean.FALSE;
 }
